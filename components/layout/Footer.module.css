@@ -1,0 +1,102 @@
+.footer {
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+  background-color: var(--primary-color);
+}
+
+
+.companyName h1 {
+  font-size: 5.2rem;
+  font-family: "HLT-Poem-Script-Pro", cursive;
+  color: var(--third-color);
+  cursor: pointer;
+}
+
+.desc {
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.8rem;
+  text-transform: uppercase;
+}
+
+.companyName p {
+  color: var(--text-smoke-color);
+}
+
+.quickLinks p,
+.quickLinks {
+  color: var(--text-smoke-color);
+}
+
+.quickLinksTitle {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: var(--card-bg-04);
+  text-transform: uppercase;
+}
+
+.linkItem a:hover,
+.linkItem a:focus,
+.linkItem a:active {
+  color: var(--third-color);
+}
+
+.linkActive {
+  color: var(--third-color);
+}
+
+.estYear {
+  color: var(--card-bg-04);
+  cursor: pointer;
+}
+
+.mapIcon svg,
+.phoneIcon svg,
+.emailIcon svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  color: var(--text-smoke-color);
+}
+
+.copyRight {
+  margin-top: 5rem;
+  font-size: 0.9rem;
+  color: var(--text-gray-color);
+  text-align: center;
+}
+
+@media only screen and (max-width:1200px) {}
+
+@media only screen and (max-width:992px) {
+  .footer {
+    margin: auto;
+    background-color: var(--primary-color);
+  }
+
+
+  .companyName h1 {
+    font-size: 5.2rem;
+    font-family: "HLT-Poem-Script-Pro", cursive;
+    color: var(--third-color);
+    cursor: pointer;
+  }
+
+  .desc {
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    text-transform: uppercase;
+  }
+
+  .companyName p {
+    color: var(--text-smoke-color);
+  }
+}
+
+@media only screen and (max-width:1200px) {}
+
+@media only screen and (max-width:992px) {}
+
+@media only screen and (max-width:768px) {}
+
+@media only screen and (max-width:576px) {}

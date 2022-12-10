@@ -1,0 +1,26 @@
+.heroSection {
+  background-color: var(--hero-bg);
+}
+
+.heroSection img {
+  width: 100%;
+  height: auto;
+}
+
+.heroContent h2 {
+  margin: 2rem 0;
+  color: var(--primary-color);
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+
+.heroDesc {
+  color: var(--secondary-color);
+  text-align: justify;
+}

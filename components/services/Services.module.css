@@ -1,0 +1,79 @@
+.serviceItem {
+  margin-top: 1.2rem;
+  padding: 1.6rem;
+  background-color: var(--card-bg-01);
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  column-gap: 0.8rem;
+
+  cursor: pointer;
+}
+
+.serviceItem:hover {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.serviceItem svg {
+  width: 3.6rem;
+  height: 3.6rem;
+  padding: 0.5rem;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  color: var(--text-smoke-color);
+}
+
+.serviceItem h3 {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.serviceItem p {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+@media only screen and (max-width:1200px) {
+  .serviceItem {
+    column-gap: 0.6rem;
+  }
+
+  .serviceItem svg {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .serviceItem h3 {
+    font-size: 1rem;
+  }
+
+  .serviceItem p {
+    font-size: 0.82rem;
+  }
+}
+
+@media only screen and (max-width:992px) {
+  .serviceItem {
+    padding: 0.8rem;
+    column-gap: 0.4rem;
+  }
+
+  .serviceItem svg {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  .serviceItem h3 {
+    font-size: 1rem;
+  }
+
+  .serviceItem p {
+    font-size: 0.82rem;
+  }
+}
+
+@media only screen and (max-width:768px) {}
+
+@media only screen and (max-width:576px) {}

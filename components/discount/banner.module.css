@@ -1,0 +1,55 @@
+.banner {
+  margin: 2rem 0rem;
+  height: 100%;
+  background-color: var(--card-bg-01);
+  background-image: url('../../public//images/banners/b14.png');
+  background-repeat: repeat-x;
+  background-position: 30% 50%;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.clockText h4,
+.clockText h3 {
+  color: var(--price-color);
+}
+
+.clockText h3 {
+  font-weight: 600;
+}
+
+.clockText p {
+  color: var(--price-color);
+  font-weight: 700;
+  font-size: 5.2rem;
+}
+
+@media only screen and (max-width:1200px) {}
+
+@media only screen and (max-width:992px) {}
+
+@media only screen and (max-width:768px) {
+
+  .clockText h4 {
+    font-size: 1.4rem !important;
+  }
+
+  .clockText h3 {
+    font-weight: 600;
+    font-size: 1.6rem !important;
+  }
+}
+
+@media only screen and (max-width:576px) {
+  .clockText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}

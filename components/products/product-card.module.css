@@ -1,0 +1,44 @@
+.productCardItem {
+
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 1px 6px 0px;
+  border-radius: 11px;
+  cursor: pointer;
+}
+
+.productCardItem img {
+  width: 100%;
+  height: 100%;
+  padding: 0.8rem 0.8rem 0rem 0.8rem;
+  border-radius: 11px;
+}
+
+.productName {
+  margin-top: 1.6rem;
+  font-size: 1rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.productBrandName {
+  font-size: 0.74rem;
+}
+
+.productCardBottom {
+  margin-bottom: 1.6rem;
+}
+
+.productCardBottom svg {
+  padding: 0.3rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  color: var(--text-smoke-color);
+
+  border-radius: 50%;
+  background-color: var(--title-bg-color);
+}
+
+.productCardPrice {
+  color: var(--price-color);
+  font-size: 1.3rem;
+  font-weight: 500;
+}

@@ -1,0 +1,21 @@
+.btn {
+  display: inline-block;
+  margin-top: 2.4rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 0.9rem;
+  outline: none;
+  padding: 0.8rem 2rem;
+  background-color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-smoke-color);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}

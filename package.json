@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bootstrap": "^5.2.3",
+    "framer-motion": "^7.6.15",
     "next": "13.0.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "reactstrap": "^9.1.5"
   },
   "devDependencies": {
     "eslint": "8.28.0",

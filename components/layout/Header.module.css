@@ -1,0 +1,179 @@
+.header {
+  width: 100%;
+  height: 7rem;
+  color: var(--text-smoke-color);
+  background-color: var(--primary-color);
+  box-shadow: 3px 3px 8px -3px var(--secondary-color);
+  z-index: 999;
+}
+
+.navWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  column-gap: 1.4rem;
+  cursor: pointer;
+}
+
+.navigation {
+  margin-top: auto;
+  text-transform: uppercase;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  column-gap: 2rem;
+}
+
+.navItem {
+  transition: all 0.1s ease;
+}
+
+.navItem a:focus,
+.navItem a:active,
+.navItem a:hover {
+  color: var(--third-color);
+}
+
+.navItemActive {
+  color: var(--third-color);
+}
+
+.navIcon {
+  display: flex;
+  align-items: center;
+  column-gap: 1.2rem;
+  cursor: pointer;
+}
+
+.favoriteIcon svg,
+.cartIcon svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.mobileMenu svg {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.mobileMenu {
+  display: none;
+}
+
+.userIcon svg {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.favoriteIcon,
+.cartIcon {
+  position: relative;
+}
+
+.badge {
+  width: 1.4rem;
+  height: 1.4rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  background-color: var(--third-color);
+  border-radius: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  z-index: 10;
+}
+
+
+/* show sticky navbar */
+.stickyHeader {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+/* end show sticky navbar */
+
+@media only screen and (max-width:768px) {
+  .header {
+    width: 100%;
+    height: 6rem;
+  }
+
+  .navWrapper {
+    margin-top: 1.5rem;
+  }
+
+  .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+
+    display: none;
+  }
+
+  .logo img {
+    width: 52%;
+    height: auto;
+  }
+
+  .favoriteIcon svg,
+  .cartIcon svg {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .badge {
+    width: 1.2rem;
+    height: 1.2rem;
+    top: -40%;
+    right: -40%;
+  }
+
+  .userIcon svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .menu {
+    position: absolute;
+    padding-left: 0rem;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 99999;
+    background-color: rgba(23, 72, 33, 0.9);
+
+    gap: 3.2rem;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .activeMenu {
+    display: block;
+  }
+
+  .mobileMenu {
+    display: block;
+  }
+}
