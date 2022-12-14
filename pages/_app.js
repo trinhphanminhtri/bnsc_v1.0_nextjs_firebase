@@ -16,15 +16,14 @@ function MyApp({ Component, pageProps }) {
           content="Công ty TNHH Thực phẩm và Giải khát BENISON được thành lập vào năm 2022, trụ sở tại số 59 Mạc Đỉnh Chi, quận 1, Tp. Hồ Chí Minh. Công ty chúng tôi chuyên cung cấp thực phẩm và nước giải khát..."
         />
       </Head>
-    
-        <ToastContainer
-          position="top-right"
-          autoClose={1000}
-          closeOnClick
-          pauseOnHover
-          theme="dark"
-        />
-        <Component {...pageProps} />
+      <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        closeOnClick
+        pauseOnHover={false}
+        theme="dark"
+      />
+      <Component {...pageProps} />
     </Layout>
   );
 }
