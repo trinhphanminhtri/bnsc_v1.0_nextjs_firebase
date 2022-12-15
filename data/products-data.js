@@ -1,58 +1,5 @@
 const DUMMY_PRODUCTS = [
-  {
-    id: "W368",
-    category: "wine",
-    productName: "Vang Đỏ Unique Delicious 368",
-    brandName: "Aus Legend Wine",
-    price: 689000,
-    image: "images/products/wine/unique-delicious-368.jpg",
-    newArrivals: true,
-  },
-  {
-    id: "W568",
-    category: "wine",
-    productName: "Vang Đỏ Ecstatic Passion 568",
-    brandName: "Aus Legend Wine",
-    price: 689000,
-    image: "images/products/wine/ecstatic-passion-568.jpg",
-    newArrivals: true,
-  },
-  {
-    id: "W666",
-    category: "wine",
-    productName: "Vang Đỏ Paradise Secret 666",
-    brandName: "Aus Legend Wine",
-    price: 1652000,
-    image: "images/products/wine/barossa-valley-666.jpg",
-    newArrivals: false,
-  },
-  {
-    id: "W888",
-    category: "wine",
-    productName: "Vang Đỏ Premium Paradise 888",
-    brandName: "Aus Legend Wine",
-    price: 2066000,
-    image: "images/products/wine/coonawarra-888.jpg",
-    newArrivals: false,
-  },
-  {
-    id: "S1068",
-    category: "sparkling",
-    productName: "Sparkling White Grape",
-    brandName: "Barossa Legend Aus",
-    price: 306000,
-    image: "images/products/sparkling/sparkling-white.jpg",
-    newArrivals: false,
-  },
-  {
-    id: "S1079",
-    category: "sparkling",
-    productName: "Sparkling Dark Grape",
-    brandName: "Barossa Legend Aus",
-    price: 306000,
-    image: "images/products/sparkling/sparkling-dark.jpg",
-    newArrivals: false,
-  },
+  /* ------------------------ HONEY ------------------------ */
   {
     id: "HMallee",
     category: "honey",
@@ -89,6 +36,8 @@ const DUMMY_PRODUCTS = [
     image: "images/products/honey/kid-honey.jpg",
     newArrivals: true,
   },
+
+  /* ------------------------ OIL ------------------------ */
   {
     id: "O250",
     category: "oil",
@@ -116,6 +65,39 @@ const DUMMY_PRODUCTS = [
     image: "images/products/oil/olive-oil-750ml.jpg",
     newArrivals: true,
   },
+
+  /* ------------------------ SPARKLING ------------------------ */
+  {
+    id: "S1068",
+    category: "sparkling",
+    productName: "Sparkling White Grape",
+    brandName: "Barossa Legend Aus",
+    price: 306000,
+    image: "images/products/sparkling/sparkling-white.jpg",
+    newArrivals: false,
+  },
+  {
+    id: "S1079",
+    category: "sparkling",
+    productName: "Sparkling Dark Grape",
+    brandName: "Barossa Legend Aus",
+    price: 306000,
+    image: "images/products/sparkling/sparkling-dark.jpg",
+    newArrivals: false,
+  },
+
+  /* ------------------------ CEREAL ------------------------ */
+  {
+    id: "NMuesli",
+    category: "cereal",
+    productName: "Ngũ Cốc Hữu Cơ",
+    brandName: "Aus Organic & Healthy",
+    price: 156000,
+    image: "images/products/nuts/muesli.jpg",
+    newArrivals: false,
+  },
+
+  /* ------------------------ DRIED FRUIT ------------------------ */
   {
     id: "FTGrapes",
     category: "driedfruit",
@@ -125,22 +107,53 @@ const DUMMY_PRODUCTS = [
     image: "images/products/fruit-toasted/toasted-grapes.jpg",
     newArrivals: false,
   },
+
+  /* ------------------------ NUT ------------------------ */
   {
     id: "NAlmonds",
-    category: "cereal",
-    productName: "Ngũ Cốc Hữu Cơ",
-    brandName: "Aus Organic & Healthy",
-    price: 156000,
-    image: "images/products/nuts/muesli.jpg",
-    newArrivals: false,
-  },
-  {
-    id: "NMuesli",
     category: "nut",
     productName: "Hạnh Nhân Rang Muối",
     brandName: "Aus Organic & Healthy",
     price: 205000,
     image: "images/products/nuts/roasted-salted-almonds.jpg",
+    newArrivals: false,
+  },
+
+  /* ------------------------ WINE ------------------------ */
+  {
+    id: "W368",
+    category: "wine",
+    productName: "Vang Đỏ Unique Delicious 368",
+    brandName: "Aus Legend Wine",
+    price: 689000,
+    image: "images/products/wine/unique-delicious-368.jpg",
+    newArrivals: true,
+  },
+  {
+    id: "W568",
+    category: "wine",
+    productName: "Vang Đỏ Ecstatic Passion 568",
+    brandName: "Aus Legend Wine",
+    price: 689000,
+    image: "images/products/wine/ecstatic-passion-568.jpg",
+    newArrivals: true,
+  },
+  {
+    id: "W666",
+    category: "wine",
+    productName: "Vang Đỏ Paradise Secret 666",
+    brandName: "Aus Legend Wine",
+    price: 1652000,
+    image: "images/products/wine/barossa-valley-666.jpg",
+    newArrivals: false,
+  },
+  {
+    id: "W888",
+    category: "wine",
+    productName: "Vang Đỏ Premium Paradise 888",
+    brandName: "Aus Legend Wine",
+    price: 2066000,
+    image: "images/products/wine/coonawarra-888.jpg",
     newArrivals: false,
   },
 ];

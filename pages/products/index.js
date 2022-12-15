@@ -7,9 +7,11 @@ import { getAllProducts } from "../../data/products-data";
 import SearchIcon from "../../components/icons/search-icon";
 import classes from "../../styles/Products.module.css";
 import { motion } from "framer-motion";
+
 const Products = () => {
   const allProducts = getAllProducts();
   const [productsFilter, setProductsFilter] = useState(allProducts);
+  const [sortPrice, setSortPrice] = useState();
 
   const productsFilterHandler = (data) => {
     const filterData = data.target.value;
@@ -59,6 +61,16 @@ const Products = () => {
       setProductsFilter(filteredProducts);
     }
   };
+  const productsSearchHandler = (data) => {
+    const searchText = data.target.value;
+    const productsSearch = allProducts.filter((item) =>
+      item.productName
+        .toLocaleLowerCase()
+        .includes(searchText.toLocaleLowerCase())
+    );
+    setProductsFilter(productsSearch);
+  };
+
   return (
     <Fragment>
       <Head>
@@ -86,14 +98,18 @@ const Products = () => {
               <div className={classes.filterWidget}>
                 <select>
                   <option>Sắp sếp theo giá</option>
-                  <option value="">Giá tăng dần</option>
-                  <option value="">Giá giảm dần</option>
+                  <option value="ascending">Giá tăng dần</option>
+                  <option value="descending">Giá giảm dần</option>
                 </select>
               </div>
             </Col>
             <Col lg="6" md="6">
               <div className={classes.searchBox}>
-                <input type="text" placeholder="Tìm sản phẩm" />
+                <input
+                  type="text"
+                  placeholder="Tìm sản phẩm"
+                  onChange={productsSearchHandler}
+                />
                 <motion.span whileTap={{ scale: 1.2 }}>
                   <SearchIcon />
                 </motion.span>
@@ -102,10 +118,14 @@ const Products = () => {
           </Row>
         </Container>
       </section>
-      <section>
+      <section className="pt-0">
         <Container>
           <Row>
-            {productsFilter.length=== 0 ? (<h1>Sản phẩm không tồn tại!</h1>) : <ProductList items={productsFilter} />}
+            {productsFilter.length === 0 ? (
+              <h1>Sản phẩm không tồn tại!</h1>
+            ) : (
+              <ProductList items={productsFilter} />
+            )}
           </Row>
         </Container>
       </section>
