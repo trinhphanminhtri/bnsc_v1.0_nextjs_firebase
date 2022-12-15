@@ -55,7 +55,7 @@ const DUMMY_PRODUCTS = [
   },
   {
     id: "HMallee",
-    category: "Honey",
+    category: "honey",
     productName: "Mật Ong Hoa Mallee",
     brandName: "Buzz Honey",
     price: 306000,
@@ -64,7 +64,7 @@ const DUMMY_PRODUCTS = [
   },
   {
     id: "HMeadow",
-    category: "Honey",
+    category: "honey",
     productName: "Mật Ong Đồng Cỏ",
     brandName: "Buzz Honey",
     price: 490000,
@@ -73,7 +73,7 @@ const DUMMY_PRODUCTS = [
   },
   {
     id: "HOrange",
-    category: "Honey",
+    category: "honey",
     productName: "Mật Ong Hoa Cam",
     brandName: "Buzz Honey",
     price: 490000,
@@ -82,7 +82,7 @@ const DUMMY_PRODUCTS = [
   },
   {
     id: "HKid",
-    category: "Honey",
+    category: "honey",
     productName: "Mật Ong Trẻ Em",
     brandName: "Buzz Honey",
     price: 490000,
@@ -91,7 +91,7 @@ const DUMMY_PRODUCTS = [
   },
   {
     id: "O250",
-    category: "Oil",
+    category: "oil",
     productName: "Dầu Ô Liu Hữu Cơ 250ml",
     brandName: "Aus Organic & Healthy",
     price: 184000,
@@ -100,7 +100,7 @@ const DUMMY_PRODUCTS = [
   },
   {
     id: "O500",
-    category: "Oil",
+    category: "oil",
     productName: "Dầu Ô Liu Hữu Cơ 500ml",
     brandName: "Aus Organic & Healthy",
     price: 252000,
@@ -109,7 +109,7 @@ const DUMMY_PRODUCTS = [
   },
   {
     id: "O750",
-    category: "Oil",
+    category: "oil",
     productName: "Dầu Ô Liu Hữu Cơ 750ml",
     brandName: "Aus Organic & Healthy",
     price: 344000,
@@ -118,7 +118,7 @@ const DUMMY_PRODUCTS = [
   },
   {
     id: "FTGrapes",
-    category: "Fruit",
+    category: "driedfruit",
     productName: "Nho Khô Úc",
     brandName: "Aus Organic & Healthy",
     price: 86000,
@@ -127,20 +127,20 @@ const DUMMY_PRODUCTS = [
   },
   {
     id: "NAlmonds",
-    category: "Nut",
+    category: "cereal",
     productName: "Ngũ Cốc Hữu Cơ",
     brandName: "Aus Organic & Healthy",
     price: 156000,
-    image: "images/products/nuts/roasted-salted-almonds.jpg",
+    image: "images/products/nuts/muesli.jpg",
     newArrivals: false,
   },
   {
     id: "NMuesli",
-    category: "Nut",
+    category: "nut",
     productName: "Hạnh Nhân Rang Muối",
     brandName: "Aus Organic & Healthy",
     price: 205000,
-    image: "images/products/nuts/muesli.jpg",
+    image: "images/products/nuts/roasted-salted-almonds.jpg",
     newArrivals: false,
   },
 ];
