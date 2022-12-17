@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef, useEffect } from "react";
+import React, { Fragment, useState, useRef } from "react";
 import { Container, Row, Col } from "reactstrap";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -53,7 +53,7 @@ const ProductDetail = () => {
   const addToCart = () => {
     toast.success("Sản phẩm được thêm vào giỏ hàng");
   };
- 
+
   return (
     <Fragment>
       <Head>
@@ -95,9 +95,7 @@ const ProductDetail = () => {
                   <span className={classes.productPrice}>
                     {product.price}&nbsp;vnđ
                   </span>
-                  <p>
-                    Danh mục:<strong>{product.categoryVN.toUpperCase()}</strong>
-                  </p>
+                  <p>Danh mục:&nbsp;{product.categoryVN.toUpperCase()}</p>
                 </div>
                 <p className="mt-3">{product.netWeight}</p>
                 <p className="mt-0">{product.condition}</p>
@@ -124,7 +122,7 @@ const ProductDetail = () => {
                   className={`${tab === "rev" ? classes.activeTab : ""}`}
                   onClick={tabReviewHandler}
                 >
-                  Đánh giá&nbsp;({product.reviews.length})
+                  Đánh giá&nbsp;{product.reviews.length}
                 </h6>
               </div>
               {tab === "desc" ? (
