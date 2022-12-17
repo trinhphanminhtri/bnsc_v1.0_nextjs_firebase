@@ -62,6 +62,7 @@
 .mobileMenu svg {
   width: 2.4rem;
   height: 2.4rem;
+  fill: var(--text-smoke-color);
 }
 
 .mobileMenu {
@@ -71,11 +72,13 @@
 .userIcon svg {
   width: 2.4rem;
   height: 2.4rem;
+  fill: var(--text-smoke-color);
 }
 
 .favoriteIcon,
 .cartIcon {
   position: relative;
+  fill: var(--text-smoke-color);
 }
 
 .badge {

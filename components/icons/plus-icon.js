@@ -2,17 +2,12 @@ const PlusCircleIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      fill="none"
       viewBox="0 0 24 24"
-      stroke-width="1.5"
-      stroke="currentColor"
-      class="w-6 h-6"
+      width="24"
+      height="24"
     >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M12 4.5v15m7.5-7.5h-15"
-      />
+      <path fill="none" d="M0 0h24v24H0z" />
+      <path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" />
     </svg>
   );
 };

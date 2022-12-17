@@ -1,8 +1,8 @@
 import { Fragment } from "react";
 import { Container } from "reactstrap";
-import classes from "./hero.module.css";
+import classes from "./common-hero.module.css";
 
-const Hero = (props) => {
+const CommonHero = (props) => {
   return (
     <Fragment>
       <section className={classes.heroSection}>
@@ -13,4 +13,4 @@ const Hero = (props) => {
     </Fragment>
   );
 };
-export default Hero;
+export default CommonHero;

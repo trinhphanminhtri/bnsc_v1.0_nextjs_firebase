@@ -28,7 +28,7 @@ const Hero = () => {
           </Col>
           <Col lg="6" md="6">
             <Image
-              src="/images/hero-img.png"
+              src="/images/hero-img.jpg"
               priority={true}
               width={575}
               height={434}

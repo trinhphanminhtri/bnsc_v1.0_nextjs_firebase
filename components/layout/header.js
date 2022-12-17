@@ -24,8 +24,8 @@ const Header = () => {
   const stickyHeaderFunc = () => {
     window.addEventListener("scroll", () => {
       if (
-        document.body.scrollTop > 800 ||
-        document.documentElement.scrollTop > 800
+        document.body.scrollTop > 600 ||
+        document.documentElement.scrollTop > 600
       ) {
         headerRef.current.classList.add(`${classes.stickyHeader}`);
       } else {
@@ -35,12 +35,15 @@ const Header = () => {
   };
   useEffect(() => {
     stickyHeaderFunc();
-    return () => window.removeEventListener("scroll", stickyHeaderFunc);
-  });
+
+    // return to clean up function
+    return () => window.removeEventListener("scroll", stickyHeaderFunc); 
+  },[]);
   // end hidden navbar then show navbar out when scrolling
 
-  const menuRef = useRef(null)
-  const menuToggle = () => menuRef.current.classList.toggle(`${classes.activeMenu}`);
+  const menuRef = useRef(null);
+  const menuToggle = () =>
+    menuRef.current.classList.toggle(`${classes.activeMenu}`);
   return (
     <header className={classes.header} ref={headerRef}>
       {/* <header className={classes.header}> */}
@@ -58,7 +61,11 @@ const Header = () => {
                 />
               </Link>
             </motion.div>
-            <div className={classes.navigation} ref={menuRef} onClick={menuToggle}>
+            <div
+              className={classes.navigation}
+              ref={menuRef}
+              onClick={menuToggle}
+            >
               <ul className={classes.menu}>
                 {links.map((menuItem) => (
                   <motion.li

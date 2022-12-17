@@ -11,7 +11,9 @@
   color: var(--third-color);
   cursor: pointer;
 }
-
+.companyName a:hover{
+  color: var(--third-color);
+}
 .desc {
   font-size: 1.3rem;
   font-weight: 500;
@@ -55,7 +57,7 @@
 .emailIcon svg {
   width: 1.4rem;
   height: 1.4rem;
-  color: var(--text-smoke-color);
+  fill: var(--text-smoke-color);
 }
 
 .copyRight {

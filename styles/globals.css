@@ -21,6 +21,7 @@
   --text-gray-color: #999;
   --text-smoke-color: #f5f5f5;
   --price-color: #7A0919;
+  --star-color: coral;
 }
 
 /* end css variables */
@@ -74,4 +75,3 @@ section {
 }
 
 /* end reset browser default */
-

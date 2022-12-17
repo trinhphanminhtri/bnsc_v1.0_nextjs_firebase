@@ -31,7 +31,7 @@
   padding: 0.3rem;
   width: 1.6rem;
   height: 1.6rem;
-  color: var(--text-smoke-color);
+  fill: var(--text-smoke-color);
 
   border-radius: 50%;
   background-color: var(--title-bg-color);

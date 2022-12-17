@@ -21,7 +21,7 @@
   padding: 0.5rem;
   background-color: var(--secondary-color);
   border-radius: 50%;
-  color: var(--text-smoke-color);
+  fill: var(--text-smoke-color);
 }
 
 .serviceItem h3 {
@@ -31,6 +31,7 @@
 }
 
 .serviceItem p {
+  color: var(--price-color);
   font-size: 0.9rem;
   margin-top: 0.5rem;
 }

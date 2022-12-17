@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import Head from "next/head";
-import Hero from "../../components/ui/hero";
+import CommonHero from "../../components/ui/common-hero";
 import ProductList from "../../components/products/product-list";
 import { Container, Row, Col } from "reactstrap";
 import { getAllProducts } from "../../data/products-data";
@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 const Products = () => {
   const allProducts = getAllProducts();
   const [productsFilter, setProductsFilter] = useState(allProducts);
-  const [sortPrice, setSortPrice] = useState();
+  const [sortDescPrice, setSortDescPrice] = useState([]);
 
   const productsFilterHandler = (data) => {
     const filterData = data.target.value;
@@ -71,16 +71,25 @@ const Products = () => {
     setProductsFilter(productsSearch);
   };
 
+  const sortPriceHandler = (data) => {
+    const sortData = data.target.value;
+    if (sortData === "ascending") {
+      console.log("Sắp xếp tăng dần");
+    }
+    if (sortData === "descending") {
+      console.log("Sắp xếp giảm dần");
+    }
+  };
   return (
     <Fragment>
       <Head>
         <title>Benison - Tất cả sản phẩm</title>
       </Head>
-      <Hero title={"Sản phẩm"} />
+      <CommonHero title={"Sản phẩm"} />
       <section className={classes.filterSection}>
         <Container>
           <Row>
-            <Col lg="3" md="3">
+            <Col lg="3" md="6" sm="6">
               <div className={classes.filterWidget}>
                 <select onChange={productsFilterHandler}>
                   <option value="">Tìm theo danh mục</option>
@@ -94,8 +103,9 @@ const Products = () => {
                 </select>
               </div>
             </Col>
-            <Col lg="3" md="3">
+            <Col lg="3" md="6" sm="6" className="text-end">
               <div className={classes.filterWidget}>
+                {/* <select onChange={sortPriceHandler}> */}
                 <select>
                   <option>Sắp sếp theo giá</option>
                   <option value="ascending">Giá tăng dần</option>
@@ -103,7 +113,7 @@ const Products = () => {
                 </select>
               </div>
             </Col>
-            <Col lg="6" md="6">
+            <Col lg="6" md="12">
               <div className={classes.searchBox}>
                 <input
                   type="text"
@@ -122,7 +132,7 @@ const Products = () => {
         <Container>
           <Row>
             {productsFilter.length === 0 ? (
-              <h1>Sản phẩm không tồn tại!</h1>
+              <h1 className="text-center fs-4">Sản phẩm không được tìm thấy!</h1>
             ) : (
               <ProductList items={productsFilter} />
             )}

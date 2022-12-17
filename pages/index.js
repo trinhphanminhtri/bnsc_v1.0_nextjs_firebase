@@ -29,11 +29,14 @@ const Home = () => {
     const bestSalesProducts = allProducts.filter(
       (item) =>
         item.category === "sparkling" ||
-        item.id === "NAlmonds" ||
-        item.category === "" ||
-        item.id === "HKid"
+        item.category === "nut" ||
+        item.id === "wine-368" ||
+        item.id === "wine-568" ||
+        item.category === "oil"
     );
-    const newArrivals = allProducts.filter((item) => item.newArrivals === true);
+    const newArrivals = allProducts.filter(
+      (item) => item.isNewArrivals === true
+    );
 
     setTrendingProducts(filteredTrendingProducts);
     setBestSales(bestSalesProducts);

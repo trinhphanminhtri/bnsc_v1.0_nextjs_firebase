@@ -11,10 +11,13 @@ import classes from "./Footer.module.css";
 const Footer = () => {
   const path = usePathname();
   const categories = [
-    { path: "/wine", text: "Rượu vang" },
-    { path: "/sparkling", text: "Sparkling" },
-    { path: "/toasted-fruits", text: "Trái cây sấy" },
-    { path: "/nuts", text: "Hạt dinh dưỡng" },
+    { path: "0", text: "Mật ong và siro" },
+    { path: "1", text: "Dầu ăn" },
+    { path: "2", text: "Nước có ga" },
+    { path: "3", text: "Ngũ cốc" },
+    { path: "4", text: "Thực phẩm khô" },
+    { path: "5", text: "Các loại đậu sấy khô" },
+    { path: "6", text: "Rượu" },
   ];
   const links = [
     { path: "/products", text: "Sản phẩm" },
@@ -29,7 +32,9 @@ const Footer = () => {
       <Container>
         <Row>
           <Col lg="6" xl="4" md="6" className={classes.companyName}>
-            <motion.h1 whileTap={{ scale: 0.6 }}>Benison</motion.h1>
+            <motion.h1 whileTap={{ scale: 0.6 }}>
+              <Link href={"/"}>Benison</Link>
+            </motion.h1>
             <p className={classes.estYear}>Since 2020</p>
             <p className={`${classes.desc} mt-4`}>
               Uy Tín - Chất Lượng - Giá Tốt

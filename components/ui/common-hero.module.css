@@ -1,5 +1,5 @@
 .heroSection {
-  height: 300px;
+  height: 20rem;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../public/images/banners/hero.jpg') no-repeat center center;
   background-size: cover;
 
@@ -12,4 +12,10 @@
   text-transform: uppercase;
   color: var(--text-smoke-color);
   font-weight: 600%;
+}
+
+@media only screen and (max-width:768px) {
+  .heroSection h1{
+  font-size: 1.8rem;
+  }
 }

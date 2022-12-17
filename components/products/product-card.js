@@ -6,6 +6,7 @@ import PlusIcon from "../icons/plus-icon";
 import { motion } from "framer-motion";
 import { Col } from "reactstrap";
 import Link from "next/link";
+
 const ProductCard = (props) => {
   const notify = () => toast.success('Sản phẩm được thêm vào giỏ hàng')
   const { id, productName, brandName, price, image } = props;
@@ -20,6 +21,7 @@ const ProductCard = (props) => {
                 alt={productName}
                 width={500}
                 height={500}
+                priority={true}
               />
             </Link>
           </motion.div>

@@ -1,0 +1,107 @@
+.productSection {
+  margin-top: 5.2rem;
+}
+
+.productSection img {
+  object-fit: contain;
+}
+
+.productDetail h2 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.productRating span svg {
+  fill: var(--star-color)
+}
+
+.productRating p span {
+  color: var(--star-color);
+  font-weight: 600;
+}
+
+.productPrice {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--price-color);
+}
+
+.tabWrapper {
+  color: var(--secondary-color);
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.tabContent p {
+  line-height: 1.8rem;
+}
+
+.activeTab {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.reviewWrapper ul li span {
+  color: var(--star-color);
+  font-weight: 600;
+}
+
+.reviewWrapper ul li p {
+  margin-top: 0.4rem;
+}
+
+.reviewForm {
+  width: 70%;
+  margin: auto;
+  margin-top: 4.8rem;
+}
+
+.reviewForm h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 2.8rem;
+  color: var(--primary-color);
+}
+
+.formGroup {
+  margin-bottom: 1.6rem;
+}
+
+.formGroup span {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  font-weight: 600;
+  color: var(--star-color);
+  fill: var(--star-color);
+  cursor: pointer;
+}
+
+.formGroup textarea,
+.formGroup input {
+  width: 100%;
+  border: 1px solid var(--primary-color);
+  border-radius: 0.4rem;
+  padding: 0.8rem 2.4rem;
+}
+
+.formGroup textarea:focus,
+.formGroup input:focus {
+  outline: none;
+}
+
+.relatedTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 2.8rem;
+  color: var(--primary-color);
+}
+
+@media only screen and (max-width:768px) {
+  .productDetail h2 {
+    font-size: 1.8rem;
+  }
+}
