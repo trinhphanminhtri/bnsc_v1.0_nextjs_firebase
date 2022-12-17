@@ -1,7 +1,11 @@
 const DUMMY_PRODUCTS = [
   /* ------------------------ HONEY ------------------------ */
   {
+<<<<<<< HEAD
     id: "honey-mallee",
+=======
+    id: "HMallee",
+>>>>>>> dbc5ffe6be2e78e6e7d1b068f76779098c589d99
     category: "honey",
     categoryVN: "Mật ong & Siro",
     productName: "Mật Ong Hoa Mallee",
@@ -180,6 +184,39 @@ const DUMMY_PRODUCTS = [
       "Sparkling grapes juice is 100% natural drink made from wine grape grown in a beautiful South Australia region. This is very refreshing drink and suitable for children from 2 years old and elder. Great for any party!",
     isNewArrivals: false,
   },
+
+  /* ------------------------ SPARKLING ------------------------ */
+  {
+    id: "S1068",
+    category: "sparkling",
+    productName: "Sparkling White Grape",
+    brandName: "Barossa Legend Aus",
+    price: 306000,
+    image: "images/products/sparkling/sparkling-white.jpg",
+    newArrivals: false,
+  },
+  {
+    id: "S1079",
+    category: "sparkling",
+    productName: "Sparkling Dark Grape",
+    brandName: "Barossa Legend Aus",
+    price: 306000,
+    image: "images/products/sparkling/sparkling-dark.jpg",
+    newArrivals: false,
+  },
+
+  /* ------------------------ CEREAL ------------------------ */
+  {
+    id: "NMuesli",
+    category: "cereal",
+    productName: "Ngũ Cốc Hữu Cơ",
+    brandName: "Aus Organic & Healthy",
+    price: 156000,
+    image: "images/products/nuts/muesli.jpg",
+    newArrivals: false,
+  },
+
+  /* ------------------------ DRIED FRUIT ------------------------ */
   {
     id: "sparkling-1079",
     category: "sparkling",
@@ -202,6 +239,7 @@ const DUMMY_PRODUCTS = [
     isNewArrivals: false,
   },
 
+<<<<<<< HEAD
   /* ------------------------ CEREAL ------------------------ */
   {
     id: "cereal-muesli",
@@ -251,6 +289,11 @@ const DUMMY_PRODUCTS = [
   /* ------------------------ NUT ------------------------ */
   {
     id: "nut-almonds",
+=======
+  /* ------------------------ NUT ------------------------ */
+  {
+    id: "NAlmonds",
+>>>>>>> dbc5ffe6be2e78e6e7d1b068f76779098c589d99
     category: "nut",
     categoryVN: "Các loại đậu sấy",
     productName: "Hạnh Nhân Rang Muối",
@@ -355,6 +398,44 @@ const DUMMY_PRODUCTS = [
     description:
       " Cabernet Sauvignon from Coonawarra has been very popular in the world of wine. With the special climate, Cabernet Sauvignon grapes grow very well with excellent flavor here. Then the wine was made with unique winemaking method and it is so beautiful to drink. This Cabernet Sauvignon are very full-bodied and have aromas of green pepper, mint, and a bit of tobacco notes emerging from aging. It is dark in color, with cassis, black cherry flavors, rich fruitiness, high tannins and high acidity. Cabernet Sauvignon wine can also be aged for 10 years or more",
     isNewArrivals: false,
+  },
+
+  /* ------------------------ WINE ------------------------ */
+  {
+    id: "W368",
+    category: "wine",
+    productName: "Vang Đỏ Unique Delicious 368",
+    brandName: "Aus Legend Wine",
+    price: 689000,
+    image: "images/products/wine/unique-delicious-368.jpg",
+    newArrivals: true,
+  },
+  {
+    id: "W568",
+    category: "wine",
+    productName: "Vang Đỏ Ecstatic Passion 568",
+    brandName: "Aus Legend Wine",
+    price: 689000,
+    image: "images/products/wine/ecstatic-passion-568.jpg",
+    newArrivals: true,
+  },
+  {
+    id: "W666",
+    category: "wine",
+    productName: "Vang Đỏ Paradise Secret 666",
+    brandName: "Aus Legend Wine",
+    price: 1652000,
+    image: "images/products/wine/barossa-valley-666.jpg",
+    newArrivals: false,
+  },
+  {
+    id: "W888",
+    category: "wine",
+    productName: "Vang Đỏ Premium Paradise 888",
+    brandName: "Aus Legend Wine",
+    price: 2066000,
+    image: "images/products/wine/coonawarra-888.jpg",
+    newArrivals: false,
   },
 ];
 
