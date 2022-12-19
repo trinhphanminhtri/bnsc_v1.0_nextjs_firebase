@@ -1,0 +1,12 @@
+.tableCart td,
+.tableCart th {
+  color: var(--primary-color);
+}
+
+.tableCart tbody img {
+  object-fit: cover;
+}
+
+.tableCart tbody td:last-child {
+  cursor: pointer;
+}

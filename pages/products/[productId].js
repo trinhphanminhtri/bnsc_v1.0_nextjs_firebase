@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef } from "react";
+import React, { Fragment, useState, useRef, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -17,12 +17,16 @@ const ProductDetail = () => {
   const [tab, setTab] = useState("desc");
   const [rating, setRating] = useState(0);
   const nameInputRef = useRef(null);
-  const reviewMessageRef = useRef();
+  const reviewMessageRef = useRef(null);
   const allProducts = getAllProducts();
-
   const router = useRouter();
   const segmentProductId = router.query.productId;
   const product = getProductsById(segmentProductId);
+
+  useEffect(() => {
+    setTab("desc");
+  }, [segmentProductId]);
+
   if (!product) {
     return <h1 className="text-center fs-4 py-5">Không tìm thấy sản phẩm!</h1>;
   }
@@ -42,12 +46,13 @@ const ProductDetail = () => {
     const enteredReviewMessage = reviewMessageRef.current.value;
 
     // Test
-    const reviews = {
+    const reviewsData = {
       name: enteredName,
       reviewContent: enteredReviewMessage,
       rating: rating,
     };
-    console.log(reviews);
+    // console.log(reviewsData);
+    props.addReviews(reviewsData);
   };
 
   const addToCart = () => {

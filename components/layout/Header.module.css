@@ -36,6 +36,11 @@
   transition: all 0.1s ease;
 }
 
+.cartIcon a:focus,
+.cartIcon a:active,
+.cartIcon a:hover{
+  fill: var(--third-color);
+}
 .navItem a:focus,
 .navItem a:active,
 .navItem a:hover {
@@ -57,6 +62,7 @@
 .cartIcon svg {
   width: 1.6rem;
   height: 1.6rem;
+  fill: var(--text-smoke-color);
 }
 
 .mobileMenu svg {
@@ -78,7 +84,6 @@
 .favoriteIcon,
 .cartIcon {
   position: relative;
-  fill: var(--text-smoke-color);
 }
 
 .badge {

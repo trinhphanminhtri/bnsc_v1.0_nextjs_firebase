@@ -1,0 +1,31 @@
+.billingForm .inputForm input {
+  padding: 0.8rem 2.4rem;
+  width: 100%;
+  outline: none;
+  /* border: 1px solid var(--card-bg-02); */
+  border: 1px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+.checkoutCart {
+  padding: 2rem;
+  background-color: var(--title-bg-color);
+  color: var(--text-smoke-color);
+  border-radius: 9px;
+}
+
+.checkoutCart h6,
+.checkoutCart h4 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkoutCart h6 {
+  margin-bottom: 0.8rem;
+}
+
+.checkoutCart h4 {
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--text-smoke-color);
+}

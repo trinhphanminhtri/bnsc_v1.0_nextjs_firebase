@@ -1,0 +1,82 @@
+[
+  {
+    "id": "honey-mallee",
+    "category": "honey",
+    "categoryVN": "Mật ong & Siro",
+    "productName": "Mật Ong Hoa Mallee",
+    "brandName": "Buzz Honey",
+    "price": 306000,
+    "image": "images/products/honey/bush-mallee-honey.jpg",
+    "origin": "Sản xuất tại nước Úc (Australia)",
+    "netWeight": "Trọng lượng 320g",
+    "condition": "Bảo quản nơi khô ráo và thoáng mát, tránh nhiệt độ cao và ánh sáng trực tiếp",
+    "avgRating": 4.5,
+    "reviews": [
+      { "name": "Phượng", "reviewRating": 4.5, "reviewContent": "Ngon lắm" },
+      { "name": "Ngọc Anh", "reviewRating": 4.5, "reviewContent": "Rất ngon" },
+      { "name": "Quý", "reviewRating": 4.5, "reviewContent": "Tuyệt vời" }
+    ],
+    "description": "100% Chemical Free Australian Honey. Raw honey will naturally crystallise, to turn to liquid again, warm gently. Produced from 100% Australian apiaries",
+    "isNewArrivals": true
+  },
+  {
+    "id": "honey-meadow",
+    "category": "honey",
+    "categoryVN": "Mật ong & Siro",
+    "productName": "Mật Ong Đồng Cỏ",
+    "brandName": "Buzz Honey",
+    "price": 490000,
+    "image": "images/products/honey/lavender-honey.jpg",
+    "origin": "Sản xuất tại nước Úc (Australia)",
+    "netWeight": "Trọng lượng 500g",
+    "condition": "Bảo quản nơi khô ráo và thoáng mát, tránh nhiệt độ cao và ánh sáng trực tiếp",
+    "avgRating": 4.5,
+    "reviews": [
+      { "name": "Hoa", "reviewRating": 4.5, "reviewContent": "Ngon lắm" },
+      { "name": "Đạt", "reviewRating": 4.5, "reviewContent": "Rất ngon" },
+      { "name": "Trang", "reviewRating": 4.5, "reviewContent": "Tuyệt vời" }
+    ],
+    "description": "100% Chemical Free Australian Honey. Raw honey will naturally crystallise, to turn to liquid again, warm gently. Produced from 100% Australian apiaries",
+    "isNewArrivals": true
+  },
+  {
+    "id": "honey-orange",
+    "category": "honey",
+    "categoryVN": "Mật ong & Siro",
+    "productName": "Mật Ong Hoa Cam",
+    "brandName": "Buzz Honey",
+    "price": 490000,
+    "image": "images/products/honey/orange-blossom-honey.jpg",
+    "origin": "Sản xuất tại nước Úc (Australia)",
+    "netWeight": "Trọng lượng 500g",
+    "condition": "Bảo quản nơi khô ráo và thoáng mát, tránh nhiệt độ cao và ánh sáng trực tiếp",
+    "avgRating": 4.5,
+    "reviews": [
+      { "name": "Ngọc", "reviewRating": 4.5, "reviewContent": "Ngon lắm" },
+      { "name": "Xuân", "reviewRating": 4.5, "reviewContent": "Rất ngon" },
+      { "name": "Linh", "reviewRating": 4.5, "reviewContent": "Tuyệt vời" }
+    ],
+    "description": "100% Chemical Free Australian Honey. Raw honey will naturally crystallise, to turn to liquid again, warm gently. Produced from 100% Australian apiaries",
+    "isNewArrivals": true
+  },
+  {
+    "id": "honey-kid",
+    "category": "honey",
+    "categoryVN": "Mật ong & Siro",
+    "productName": "Mật Ong Trẻ Em",
+    "brandName": "Buzz Honey",
+    "price": 490000,
+    "image": "images/products/honey/kid-honey.jpg",
+    "origin": "Sản xuất tại nước Úc (Australia)",
+    "netWeight": "Trọng lượng 500g",
+    "condition": "Bảo quản nơi khô ráo và thoáng mát, tránh nhiệt độ cao và ánh sáng trực tiếp",
+    "avgRating": 4.5,
+    "reviews": [
+      { "name": "Trang", "reviewRating": 4.5, "reviewContent": "Ngon lắm" },
+      { "name": "My", "reviewRating": 4.5, "reviewContent": "Rất ngon" },
+      { "name": "Nhung", "reviewRating": 4.5, "reviewContent": "Tuyệt vời" }
+    ],
+    "description": "100% Chemical Free Australian Honey. Raw honey will naturally crystallise, to turn to liquid again, warm gently. Produced from 100% Australian apiaries",
+    "isNewArrivals": true
+  }
+]

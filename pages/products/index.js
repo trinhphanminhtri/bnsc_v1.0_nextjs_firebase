@@ -9,6 +9,7 @@ import classes from "../../styles/Products.module.css";
 import { motion } from "framer-motion";
 
 const Products = () => {
+  fetch("https://bnscv1nextjs-default-rtdb.firebaseio.com/bnsc_data.json");
   const allProducts = getAllProducts();
   const [productsFilter, setProductsFilter] = useState(allProducts);
   const [sortDescPrice, setSortDescPrice] = useState([]);

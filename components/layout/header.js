@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useReducer } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -9,6 +9,7 @@ import CartIcon from "../icons/cart-icon";
 import FavoriteIcon from "../icons/favorite-icon";
 import UserIcon from "../icons/user-icon";
 import MobileMenuIcon from "../icons/mobile-menu-icon";
+import { reducer } from "next/dist/client/components/reducer";
 
 const Header = () => {
   const path = usePathname();
@@ -27,9 +28,9 @@ const Header = () => {
         document.body.scrollTop > 600 ||
         document.documentElement.scrollTop > 600
       ) {
-        headerRef.current.classList.add(`${classes.stickyHeader}`);
+        headerRef.current?.classList.add(`${classes.stickyHeader}`); // null handling
       } else {
-        headerRef.current.classList.remove(`${classes.stickyHeader}`);
+        headerRef.current?.classList.remove(`${classes.stickyHeader}`);
       }
     });
   };
@@ -37,13 +38,16 @@ const Header = () => {
     stickyHeaderFunc();
 
     // return to clean up function
-    return () => window.removeEventListener("scroll", stickyHeaderFunc); 
-  },[]);
-  // end hidden navbar then show navbar out when scrolling
+    return () => window.removeEventListener("scroll", stickyHeaderFunc);
+  }, []);
 
   const menuRef = useRef(null);
   const menuToggle = () =>
     menuRef.current.classList.toggle(`${classes.activeMenu}`);
+
+  const initialValue = 0;
+  const [stateCount, dispatch] = useReducer(reducer, initialValue);
+
   return (
     <header className={classes.header} ref={headerRef}>
       {/* <header className={classes.header}> */}
@@ -97,8 +101,10 @@ const Header = () => {
                 whileTap={{ scale: 0.6 }}
                 className={classes.cartIcon}
               >
-                <CartIcon />
+                <Link href={"/cart"}>
+                  <CartIcon />
                 <span className={classes.badge}>2</span>
+                </Link>
               </motion.span>
               <motion.span
                 whileTap={{ scale: 0.6 }}

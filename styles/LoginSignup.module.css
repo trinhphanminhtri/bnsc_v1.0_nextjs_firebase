@@ -1,0 +1,39 @@
+.loginSection h3 {
+  color: var(--primary-color);
+}
+
+.authForm {
+  padding: 4rem;
+  border-radius: 9px;
+  background-color: var(--card-bg-04);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 1px 6px 0px;
+}
+
+.authForm p {
+  margin-top: 1.8rem;
+  font-size: 1.2rem;
+}
+
+.authForm p a {
+
+  transition: all 0.3s ease-in-out;
+}
+
+.authForm p a:hover {
+  color: var(--primary-color);
+}
+
+.inputForm input {
+  padding: 0.8rem 2.4rem;
+  width: 100%;
+  outline: none;
+  /* border: 1px solid var(--card-bg-02); */
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+}
+
+.inputForm input[type='file']{
+  border: none;
+  color: var(--text-gray-color);
+  cursor: pointer;
+}
