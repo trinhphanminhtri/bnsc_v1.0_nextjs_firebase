@@ -108,7 +108,7 @@ const Cart = () => {
               </table>
             </Col>
             <Col lg="3">
-              <h6 className="d-flex align-items-center justify-content-between">
+              <h6 className="d-flex align-items-center justify-content-between fs-4 fw-bold">
                 Hóa đơn
                 <span className="fs-4 fw-semibold">$$$&nbsp;vnđ</span>
               </h6>

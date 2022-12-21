@@ -10,16 +10,16 @@ const ProductList = (props) => {
       <section className={classes.productList}>
         <Container>
           <Row>
-              {items.map((item) => (
-                <ProductCard
-                  key={item.id}
-                  id={item.id}
-                  productName={item.productName}
-                  brandName={item.brandName}
-                  price={item.price}
-                  image={item.image}
-                />
-              ))}
+            {items.map((item) => (
+              <ProductCard
+                key={item.id}
+                id={item.id}
+                productName={item.productName}
+                brandName={item.brandName}
+                price={item.price}
+                image={item.image}
+              />
+            ))}
           </Row>
         </Container>
       </section>
