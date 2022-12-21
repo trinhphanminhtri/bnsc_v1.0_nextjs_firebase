@@ -73,7 +73,7 @@ const HomePage = (props) => {
   );
 };
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   console.log("(Re-)Generating...");
   const filePath = path.join(process.cwd(), "data", "products-data.json");
   const jsonData = await fs.readFile(filePath);
@@ -81,8 +81,8 @@ export async function getStaticProps(context) {
 
   if (!data) {
     return {
-      redirect:{ destination:"/no-data"}
-    }
+      redirect: { destination: "/no-data" },
+    };
   }
 
   if (data.products.length === 0) {

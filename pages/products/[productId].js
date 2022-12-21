@@ -1,8 +1,13 @@
+import fs from "fs/promises";
+import path from "path";
+
 import React, { Fragment, useState, useRef, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { toast } from "react-toastify";
+
 import { getAllProducts, getProductsById } from "../../data/products-data";
 import CommonHero from "../../components/ui/common-hero";
 import ProductList from "../../components/products/product-list";
@@ -11,33 +16,26 @@ import Button from "../../components/ui/button";
 import classes from "../../styles/ProductDetail.module.css";
 import StarIcon from "../../components/icons/star-icon";
 import StarHalfIcon from "../../components/icons/star-half-icon";
-import { toast } from "react-toastify";
 
-const ProductDetail = () => {
+const ProductDetail = (props) => {
+  const { loadedProduct, productCategory } = props;
+
   const [tab, setTab] = useState("desc");
   const [rating, setRating] = useState(0);
   const nameInputRef = useRef(null);
   const reviewMessageRef = useRef(null);
-  const allProducts = getAllProducts();
-  const router = useRouter();
-  const segmentProductId = router.query.productId;
-  const product = getProductsById(segmentProductId);
 
   useEffect(() => {
     setTab("desc");
-  }, [segmentProductId]);
+  }, [loadedProduct]);
 
-  if (!product) {
+  if (!loadedProduct) {
     return <h1 className="text-center fs-4 py-5">Không tìm thấy sản phẩm!</h1>;
   }
 
   const tabDescriptionHandler = () => setTab("desc");
   const tabReviewHandler = () => setTab("rev");
   // id, category, productName, brandName, price, image, origin, netWeight, condition, avgRating, reviews, description, newArrivals
-
-  const relatedProducts = allProducts.filter(
-    (item) => item.category === product.category
-  );
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -64,24 +62,25 @@ const ProductDetail = () => {
       <Head>
         <title>Benison - Chi tiết sản phẩm</title>
       </Head>
-      <CommonHero title={product.productName} />
+
+      <CommonHero title={loadedProduct.productName} />
 
       <section className={classes.productSection}>
         <Container>
           <Row>
             <Col lg="6" className="text-center">
               <Image
-                src={`/${product.image}`}
+                src={`/${loadedProduct.image}`}
                 width={500}
                 height={500}
-                alt={product.productName}
+                alt={loadedProduct.productName}
               />
             </Col>
             <Col lg="6">
               <div className={classes.productDetail}>
-                <h2>{product.productName}</h2>
-                <p className="mt-3">{product.brandName}</p>
-                <p className="mt-0">{product.origin}</p>
+                <h2>{loadedProduct.productName}</h2>
+                <p className="mt-3">{loadedProduct.brandName}</p>
+                <p className="mt-0">{loadedProduct.origin}</p>
                 <div
                   className={`${classes.productRating} d-flex align-items-center gap-5 mt-3 mb-4`}
                 >
@@ -93,17 +92,17 @@ const ProductDetail = () => {
                     <StarHalfIcon />
                   </span>
                   <p>
-                    Đánh giá mức <span>{product.avgRating}</span>
+                    Đánh giá mức <span>{loadedProduct.avgRating}</span>
                   </p>
                 </div>
                 <div className="d-flex align-items-center gap-5">
                   <span className={classes.productPrice}>
-                    {product.price}&nbsp;vnđ
+                    {loadedProduct.price}&nbsp;vnđ
                   </span>
-                  <p>Danh mục:&nbsp;{product.categoryVN.toUpperCase()}</p>
+                  <p>Danh mục:&nbsp;{loadedProduct.categoryVN.toUpperCase()}</p>
                 </div>
-                <p className="mt-3">{product.netWeight}</p>
-                <p className="mt-0">{product.condition}</p>
+                <p className="mt-3">{loadedProduct.netWeight}</p>
+                <p className="mt-0">{loadedProduct.condition}</p>
               </div>
               <Button onClick={addToCart}>Thêm vào giỏ hàng</Button>
             </Col>
@@ -127,19 +126,19 @@ const ProductDetail = () => {
                   className={`${tab === "rev" ? classes.activeTab : ""}`}
                   onClick={tabReviewHandler}
                 >
-                  Đánh giá&nbsp;{product.reviews.length}
+                  Đánh giá&nbsp;{loadedProduct.reviews.length}
                 </h6>
               </div>
               {tab === "desc" ? (
                 <div className={`${classes.tabContent} mt-5`}>
-                  <p>{product.description}</p>
+                  <p>{loadedProduct.description}</p>
                 </div>
               ) : (
                 <div className={`${classes.productReview} mt-5`}>
                   <div className={classes.reviewWrapper}>
                     <ul>
-                      {product.reviews ? (
-                        product.reviews.map((item) => (
+                      {loadedProduct.reviews ? (
+                        loadedProduct.reviews.map((item) => (
                           <li key={item.name} className="mb-4">
                             <h6>{item.name}</h6>
                             <span>{item.reviewRating}&nbsp;(mức đánh giá)</span>
@@ -216,12 +215,63 @@ const ProductDetail = () => {
                 Những sản phẩm cùng danh mục
               </h2>
             </Col>
-            <ProductList items={relatedProducts} />
+            <ProductList items={productCategory} />
           </Row>
         </Container>
       </section>
     </Fragment>
   );
 };
+
+export async function getStaticProps(context) {
+  const { params } = context;
+  const paramsProductId = params.productId; // dynamic segment
+
+  const filePath = path.join(process.cwd(), "data", "products-data.json");
+  const jsonData = await fs.readFile(filePath);
+  const data = JSON.parse(jsonData);
+
+  const product = data.products.find((item) => item.id === paramsProductId);
+  const productCategory = data.products.filter(
+    (item) => item.category === product.category
+  );
+  return {
+    props: {
+      loadedProduct: product,
+      productCategory:productCategory,
+    },
+  };
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: [
+      "/products/cereal-muesli",
+      "/products/driedfruit-grapes",
+      "/products/honey-kid",
+      "/products/honey-mallee",
+      "/products/honey-meadow",
+      "/products/honey-orange",
+      "/products/oil-250",
+      "/products/oil-500",
+      "/products/oil-750",
+      "/products/sparkling-1068",
+      "/products/sparkling-1079",
+      "/products/wine-368",
+      "/products/wine-568",
+      "/products/wine-666",
+      "/products/wine-888",
+    ],
+    fallback: true,
+  };
+  // return {
+
+  // paths: [
+  //   { params: { productId: "cereal-muesli" } },
+  //   { params: { productId: "driedfruit-grapes" } },
+  //   { params: { productId: "honey-kid" } },
+  // ],
+  // fallback: false,
+}
 
 export default ProductDetail;

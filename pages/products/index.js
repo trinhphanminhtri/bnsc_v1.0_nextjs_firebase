@@ -1,16 +1,17 @@
+import fs from "fs/promises";
+import path from "path";
+
 import React, { Fragment, useState } from "react";
 import Head from "next/head";
+import { motion } from "framer-motion";
+
 import CommonHero from "../../components/ui/common-hero";
 import ProductList from "../../components/products/product-list";
 import { Container, Row, Col } from "reactstrap";
-import { getAllProducts } from "../../data/products-data";
 import SearchIcon from "../../components/icons/search-icon";
 import classes from "../../styles/Products.module.css";
-import { motion } from "framer-motion";
 
-const Products = () => {
-  fetch("https://bnscv1nextjs-default-rtdb.firebaseio.com/bnsc_data.json");
-  const allProducts = getAllProducts();
+const Products = ({allProducts}) => {
   const [productsFilter, setProductsFilter] = useState(allProducts);
   const [sortDescPrice, setSortDescPrice] = useState([]);
 
@@ -133,7 +134,9 @@ const Products = () => {
         <Container>
           <Row>
             {productsFilter.length === 0 ? (
-              <h1 className="text-center fs-4">Sản phẩm không được tìm thấy!</h1>
+              <h1 className="text-center fs-4">
+                Sản phẩm không được tìm thấy!
+              </h1>
             ) : (
               <ProductList items={productsFilter} />
             )}
@@ -144,4 +147,29 @@ const Products = () => {
   );
 };
 
+export async function getStaticProps() {
+  console.log("(Re-)Generating Products Page");
+  const filePath = path.join(process.cwd(), "data", "products-data.json");
+  const jsonData = await fs.readFile(filePath);
+  const data = JSON.parse(jsonData);
+  if (!data) {
+    return {
+      redirect: { destination: "/no-data" },
+    };
+  }
+
+  if (data.products.length === 0) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      allProducts: data.products,
+    },
+    revalidate: 10,
+    // notFound: true,
+  };
+}
 export default Products;
