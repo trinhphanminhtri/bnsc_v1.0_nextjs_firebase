@@ -238,13 +238,14 @@ export async function getStaticProps(context) {
   return {
     props: {
       loadedProduct: product,
-      productCategory:productCategory,
+      productCategory: productCategory,
     },
   };
 }
 
 export async function getStaticPaths() {
   return {
+    /*
     paths: [
       "/products/cereal-muesli",
       "/products/driedfruit-grapes",
@@ -262,16 +263,32 @@ export async function getStaticPaths() {
       "/products/wine-666",
       "/products/wine-888",
     ],
-    fallback: true,
-  };
-  // return {
+    */
+    paths: [
+     /* { params: { productId: "cereal-muesli" } },
+      { params: { productId: "driedfruit-grapes" } },
+      { params: { productId: "honey-kid" } },
+      { params: { productId: "honey-mallee" } },
+      { params: { productId: "honey-meadow" } },
+      { params: { productId: "honey-orange" } },
+      { params: { productId: "oil-250" } },
+      { params: { productId: "oil-500" } },
+      { params: { productId: "oil-750" } },
+      { params: { productId: "sparkling-1068" } },
+      { params: { productId: "sparkling-1079" } },
+      */
+      { params: { productId: "wine-368" } },
+      { params: { productId: "wine-568" } },
+      { params: { productId: "wine-666" } },
+      { params: { productId: "wine-888" } },
+    ],
 
-  // paths: [
-  //   { params: { productId: "cereal-muesli" } },
-  //   { params: { productId: "driedfruit-grapes" } },
-  //   { params: { productId: "honey-kid" } },
-  // ],
-  // fallback: false,
+    /** Fallback Pages */
+    // fallback: true, // render pages even though it was not added to paths
+    //fallback: false, // render 404 page if it was not added to paths
+    fallback: "blocking",
+  };
+
 }
 
 export default ProductDetail;
