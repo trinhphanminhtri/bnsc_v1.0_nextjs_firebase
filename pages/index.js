@@ -1,4 +1,4 @@
-import { getFeaturedProducts, getAllNewArrivals } from "../helpers/api";
+import { getFeaturedProducts, getAllNewArrivals } from "../helpers/api-util";
 import Head from "next/head";
 import { Fragment } from "react";
 import Hero from "../components/hero/Hero";
@@ -44,7 +44,7 @@ const HomePage = (props) => {
 export async function getStaticProps() {
   const allFeaturedproducts = await getFeaturedProducts();
   const allNewArrivals = await getAllNewArrivals();
-  
+
   return {
     props: {
       featuredProducts: allFeaturedproducts,
