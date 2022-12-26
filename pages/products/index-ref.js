@@ -1,4 +1,6 @@
-import { getAllProducts } from "../../helpers/api";
+import fs from "fs/promises";
+import path from "path";
+
 import React, { Fragment, useState } from "react";
 import Head from "next/head";
 import { motion } from "framer-motion";
@@ -8,18 +10,19 @@ import ProductList from "../../components/products/product-list";
 import { Container, Row, Col } from "reactstrap";
 import SearchIcon from "../../components/icons/search-icon";
 import classes from "../../styles/Products.module.css";
+import { get } from "http";
 
-const Products = (props) => {
-  const [productsFilter, setProductsFilter] = useState(props.allProducts);
+const Products = ({ allProducts }) => {
+  const [productsFilter, setProductsFilter] = useState(allProducts);
   const [sortDescPrice, setSortDescPrice] = useState([]);
 
   const productsFilterHandler = (data) => {
     const filterData = data.target.value;
     if (filterData === "") {
-      setProductsFilter(props.allProducts);
+      setProductsFilter(allProducts);
     }
     if (filterData === "honey") {
-      const filteredProducts = props.allProducts.filter(
+      const filteredProducts = allProducts.filter(
         (item) => item.category === "honey"
       );
       setProductsFilter(filteredProducts);
@@ -31,31 +34,31 @@ const Products = (props) => {
       setProductsFilter(filteredProducts);
     }
     if (filterData === "sparkling") {
-      const filteredProducts = props.allProducts.filter(
+      const filteredProducts = allProducts.filter(
         (item) => item.category === "sparkling"
       );
       setProductsFilter(filteredProducts);
     }
     if (filterData === "cereal") {
-      const filteredProducts = props.allProducts.filter(
+      const filteredProducts = allProducts.filter(
         (item) => item.category === "cereal"
       );
       setProductsFilter(filteredProducts);
     }
     if (filterData === "driedfruit") {
-      const filteredProducts = props.allProducts.filter(
+      const filteredProducts = allProducts.filter(
         (item) => item.category === "driedfruit"
       );
       setProductsFilter(filteredProducts);
     }
     if (filterData === "nut") {
-      const filteredProducts = props.allProducts.filter(
+      const filteredProducts = allProducts.filter(
         (item) => item.category === "nut"
       );
       setProductsFilter(filteredProducts);
     }
     if (filterData === "wine") {
-      const filteredProducts = props.allProducts.filter(
+      const filteredProducts = allProducts.filter(
         (item) => item.category === "wine"
       );
       setProductsFilter(filteredProducts);
@@ -63,7 +66,7 @@ const Products = (props) => {
   };
   const productsSearchHandler = (data) => {
     const searchText = data.target.value;
-    const productsSearch = props.allProducts.filter((item) =>
+    const productsSearch = allProducts.filter((item) =>
       item.productName
         .toLocaleLowerCase()
         .includes(searchText.toLocaleLowerCase())
@@ -80,7 +83,6 @@ const Products = (props) => {
       console.log("Sắp xếp giảm dần");
     }
   };
-  
   return (
     <Fragment>
       <Head>
@@ -145,12 +147,37 @@ const Products = (props) => {
     </Fragment>
   );
 };
+async function getData() {
+  const filePath = path.join(process.cwd(), "data", "products-data.json");
+  const jsonData = await fs.readFile(filePath);
+  const data = JSON.parse(jsonData);
+
+  return data;
+}
 
 export async function getStaticProps() {
-  const products = await getAllProducts();
+  console.log("(Re-)Generating Products Page");
+  
+  // const filePath = path.join(process.cwd(), "data", "products-data.json");
+  // const jsonData = await fs.readFile(filePath);
+  // const data = JSON.parse(jsonData);
+
+  const data = await getData();
+
+  if (!data) {
+    return {
+      redirect: { destination: "/no-data" },
+    };
+  }
+  if (data.products.length === 0) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
-      allProducts: products,
+      allProducts: data.products,
     },
     revalidate: 10,
     // notFound: true,

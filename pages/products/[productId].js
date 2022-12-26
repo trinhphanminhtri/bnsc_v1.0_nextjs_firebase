@@ -1,14 +1,14 @@
-import fs from "fs/promises";
-import path from "path";
-
+import {
+  getAllProducts,
+  getProductById,
+  getProductByCategory,
+} from "../../helpers/api-util";
 import React, { Fragment, useState, useRef, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import Image from "next/image";
 import { toast } from "react-toastify";
 
-import { getAllProducts, getProductsById } from "../../data/products-data";
 import CommonHero from "../../components/ui/common-hero";
 import ProductList from "../../components/products/product-list";
 import { motion } from "framer-motion";
@@ -16,9 +16,12 @@ import Button from "../../components/ui/button";
 import classes from "../../styles/ProductDetail.module.css";
 import StarIcon from "../../components/icons/star-icon";
 import StarHalfIcon from "../../components/icons/star-half-icon";
+import { useRouter } from "next/router";
+import { PHASE_DEVELOPMENT_SERVER } from "next/dist/shared/lib/constants";
 
-const ProductDetail = (props) => {
-  const { loadedProduct, productCategory } = props;
+const ProductDetailPage = (props) => {
+  const productById = props.selectedProduct;
+  const productByCategory = props.categorizedProduct;
 
   const [tab, setTab] = useState("desc");
   const [rating, setRating] = useState(0);
@@ -27,11 +30,7 @@ const ProductDetail = (props) => {
 
   useEffect(() => {
     setTab("desc");
-  }, [loadedProduct]);
-
-  if (!loadedProduct) {
-    return <h1 className="text-center fs-4 py-5">Không tìm thấy sản phẩm!</h1>;
-  }
+  }, [productById]);
 
   const tabDescriptionHandler = () => setTab("desc");
   const tabReviewHandler = () => setTab("rev");
@@ -62,25 +61,29 @@ const ProductDetail = (props) => {
       <Head>
         <title>Benison - Chi tiết sản phẩm</title>
       </Head>
-
-      <CommonHero title={loadedProduct.productName} />
-
+      <CommonHero title={productById.productName} />
       <section className={classes.productSection}>
         <Container>
           <Row>
             <Col lg="6" className="text-center">
               <Image
-                src={`/${loadedProduct.image}`}
+                src={`/${productById.image}`}
                 width={500}
                 height={500}
-                alt={loadedProduct.productName}
+                alt={productById.productName}
               />
             </Col>
             <Col lg="6">
               <div className={classes.productDetail}>
-                <h2>{loadedProduct.productName}</h2>
-                <p className="mt-3">{loadedProduct.brandName}</p>
-                <p className="mt-0">{loadedProduct.origin}</p>
+                <h2>{productById.productName}</h2>
+                <p className="mt-4">
+                  <span className="me-3 fst-italic">Thương hiệu:</span>
+                  {productById.brandName}
+                </p>
+                <p className="mt-2">
+                  <span className="me-3 fst-italic">Xuất xứ:</span>
+                  {productById.origin}
+                </p>
                 <div
                   className={`${classes.productRating} d-flex align-items-center gap-5 mt-3 mb-4`}
                 >
@@ -92,17 +95,40 @@ const ProductDetail = (props) => {
                     <StarHalfIcon />
                   </span>
                   <p>
-                    Đánh giá mức <span>{loadedProduct.avgRating}</span>
+                    Đánh giá mức <span>{productById.avgRating}</span>
                   </p>
                 </div>
                 <div className="d-flex align-items-center gap-5">
                   <span className={classes.productPrice}>
-                    {loadedProduct.price}&nbsp;vnđ
+                    {productById.price}&nbsp;vnđ
                   </span>
-                  <p>Danh mục:&nbsp;{loadedProduct.categoryVN.toUpperCase()}</p>
+                  <p>
+                    <span className="me-3 fst-italic">Danh mục:</span>
+                    {productById.categoryVN.toUpperCase()}
+                  </p>
                 </div>
-                <p className="mt-3">{loadedProduct.netWeight}</p>
-                <p className="mt-0">{loadedProduct.condition}</p>
+                <p className="mt-3">
+                  <span className="me-3 fst-italic">
+                    Trọng lượng/ Thể tích:
+                  </span>
+                  {productById.netWeight}
+                </p>
+                <p className="mt-2">
+                  <span className="me-3 fst-italic">Điều kiện:</span>
+                  {productById.condition}
+                </p>
+                <p className="mt-2">
+                  <span className="me-3 fst-italic">Hạn sử dụng:</span>
+                  {productById.expiryDate}
+                </p>
+                <p className="mt-2">
+                  <span className="me-3 fst-italic">Ngày hết hạn:</span>
+                  {productById.bestBefore}
+                </p>
+                <p className="mt-2">
+                  <span className="me-3 fst-italic">Thành phần:</span>
+                  {productById.ingridient}
+                </p>
               </div>
               <Button onClick={addToCart}>Thêm vào giỏ hàng</Button>
             </Col>
@@ -126,19 +152,20 @@ const ProductDetail = (props) => {
                   className={`${tab === "rev" ? classes.activeTab : ""}`}
                   onClick={tabReviewHandler}
                 >
-                  Đánh giá&nbsp;{loadedProduct.reviews.length}
+                  Đánh giá&nbsp;
+                  {/* {productById.reviews.length} */}
                 </h6>
               </div>
               {tab === "desc" ? (
                 <div className={`${classes.tabContent} mt-5`}>
-                  <p>{loadedProduct.description}</p>
+                  <p>{productById.description}</p>
                 </div>
               ) : (
                 <div className={`${classes.productReview} mt-5`}>
                   <div className={classes.reviewWrapper}>
                     <ul>
-                      {loadedProduct.reviews ? (
-                        loadedProduct.reviews.map((item) => (
+                      {props.selectedProduct.reviews ? (
+                        productById.reviews.map((item) => (
                           <li key={item.name} className="mb-4">
                             <h6>{item.name}</h6>
                             <span>{item.reviewRating}&nbsp;(mức đánh giá)</span>
@@ -215,36 +242,40 @@ const ProductDetail = (props) => {
                 Những sản phẩm cùng danh mục
               </h2>
             </Col>
-            <ProductList items={productCategory} />
+            <ProductList items={productByCategory} />
           </Row>
         </Container>
       </section>
+      ;
     </Fragment>
   );
 };
 
 export async function getStaticProps(context) {
   const { params } = context;
-  const paramsProductId = params.productId; // dynamic segment
+  const segmentProductId = params.productId; // dynamic segment: params.productId -> [productId].js
+  // rút ngắn 2 dòng trên:
+  // const segmentProductId = context.params.productById
 
-  const filePath = path.join(process.cwd(), "data", "products-data.json");
-  const jsonData = await fs.readFile(filePath);
-  const data = JSON.parse(jsonData);
+  const product = await getProductById(segmentProductId);
+  const productCategory = await getProductByCategory(product.category);
 
-  const product = data.products.find((item) => item.id === paramsProductId);
-  const productCategory = data.products.filter(
-    (item) => item.category === product.category
-  );
   return {
     props: {
-      loadedProduct: product,
-      productCategory: productCategory,
+      selectedProduct: product,
+      categorizedProduct: productCategory,
     },
   };
 }
 
 export async function getStaticPaths() {
+  const allProducts = await getAllProducts();
+  const paths = allProducts.map((item) => ({
+    params: { productId: item.id },
+  }));
+
   return {
+    paths: paths,
     /*
     paths: [
       "/products/cereal-muesli",
@@ -263,9 +294,11 @@ export async function getStaticPaths() {
       "/products/wine-666",
       "/products/wine-888",
     ],
+
     */
+    /*
     paths: [
-     /* { params: { productId: "cereal-muesli" } },
+      { params: { productId: "cereal-muesli" } },
       { params: { productId: "driedfruit-grapes" } },
       { params: { productId: "honey-kid" } },
       { params: { productId: "honey-mallee" } },
@@ -276,19 +309,17 @@ export async function getStaticPaths() {
       { params: { productId: "oil-750" } },
       { params: { productId: "sparkling-1068" } },
       { params: { productId: "sparkling-1079" } },
-      */
       { params: { productId: "wine-368" } },
       { params: { productId: "wine-568" } },
       { params: { productId: "wine-666" } },
       { params: { productId: "wine-888" } },
     ],
-
+*/
     /** Fallback Pages */
     // fallback: true, // render pages even though it was not added to paths
-    //fallback: false, // render 404 page if it was not added to paths
-    fallback: "blocking",
+    fallback: false // render 404 page if it was not added to paths
+    // fallback: "blocking",
   };
-
 }
 
-export default ProductDetail;
+export default ProductDetailPage;

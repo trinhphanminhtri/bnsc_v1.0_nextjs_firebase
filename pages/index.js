@@ -1,8 +1,6 @@
-import fs from "fs/promises";
-import path from "path";
-
+import { getFeaturedProducts, getAllNewArrivals } from "../helpers/api";
 import Head from "next/head";
-import { Fragment, useState, useEffect } from "react";
+import { Fragment } from "react";
 import Hero from "../components/hero/Hero";
 import Title from "../components/ui/title";
 import Services from "../components/services/services";
@@ -11,33 +9,6 @@ import BannerCountDown from "../components/discount/banner";
 import { motion } from "framer-motion";
 
 const HomePage = (props) => {
-  const { allProductsData } = props;
-  const [bestSales, setBestSales] = useState(allProductsData);
-  const [trendingProducts, setTrendingProducts] = useState(allProductsData);
-  const [newArrivals, setNewArrivals] = useState(allProductsData);
-
-  useEffect(() => {
-    const filteredTrendingProducts = allProductsData.filter(
-      (item) => item.category === "wine"
-    );
-
-    const bestSalesProducts = allProductsData.filter(
-      (item) =>
-        item.category === "sparkling" ||
-        item.category === "nut" ||
-        item.id === "wine-368" ||
-        item.id === "wine-568" ||
-        item.category === "oil"
-    );
-    const newArrivals = allProductsData.filter(
-      (item) => item.isNewArrivals === true
-    );
-
-    setTrendingProducts(filteredTrendingProducts);
-    setBestSales(bestSalesProducts);
-    setNewArrivals(newArrivals);
-  }, [allProductsData]);
-
   return (
     <Fragment>
       <Head>
@@ -60,39 +31,24 @@ const HomePage = (props) => {
       >
         <Title title={"Sản phẩm nổi bật"} />
       </motion.div>
-      <ProductList items={trendingProducts} />
-
-      <Title title={"Sản phẩm bán chạy"} />
-      <ProductList items={bestSales} />
+      <ProductList items={props.featuredProducts} />
 
       <BannerCountDown />
 
       <Title title={"Hàng mới về"} />
-      <ProductList items={newArrivals} />
+      <ProductList items={props.newArrivals} />
     </Fragment>
   );
 };
 
 export async function getStaticProps() {
-  console.log("(Re-)Generating...");
-  const filePath = path.join(process.cwd(), "data", "products-data.json");
-  const jsonData = await fs.readFile(filePath);
-  const data = JSON.parse(jsonData);
-
-  if (!data) {
-    return {
-      redirect: { destination: "/no-data" },
-    };
-  }
-
-  if (data.products.length === 0) {
-    return {
-      notFound: true,
-    };
-  }
+  const allFeaturedproducts = await getFeaturedProducts();
+  const allNewArrivals = await getAllNewArrivals();
+  
   return {
     props: {
-      allProductsData: data.products,
+      featuredProducts: allFeaturedproducts,
+      newArrivals: allNewArrivals,
     },
     revalidate: 10,
     // notFound: true,

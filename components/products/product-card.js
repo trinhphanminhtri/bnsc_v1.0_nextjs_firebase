@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const ProductCard = (props) => {
   const notify = () => toast.success('Sản phẩm được thêm vào giỏ hàng')
-  const { id, productName, brandName, price, image } = props;
+  const {id, productName, brandName, price, image } = props;
   return (
     <Fragment>
       <Col lg="3" md="4">
