@@ -50,7 +50,7 @@ export async function getStaticProps() {
       featuredProducts: allFeaturedproducts,
       newArrivals: allNewArrivals,
     },
-    revalidate: 10,
+    revalidate: 1800,
     // notFound: true,
   };
 }
