@@ -6,11 +6,11 @@ export default UserIdPage;
 
 export async function getServerSideProps(context) {
   const { params } = context;
-  const userIdPath = params.userId
+  const userIdWithParams = params.userId
 
   return {
     props: {
-      id: 'userid-' + userIdPath,
+      id: 'userid-' + userIdWithParams,
     }
   }
 }

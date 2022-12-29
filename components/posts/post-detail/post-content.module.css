@@ -1,0 +1,26 @@
+.content {
+  width: 95%;
+  max-width: 60rem;
+  margin: 0.8rem auto;
+  font-size: 0.5rem;
+  line-height: 0.8rem;
+  background-color: var(--card-bg-04);
+  border-radius: 6px;
+  padding: 0.4rem;
+}
+
+.content p {
+  color: var(--primary-color);
+}
+
+.content .image {
+  margin: 0.4rem auto;
+  width: 100%;
+  max-width: 600px;
+}
+
+@media (min-width: 768px) {
+  .content {
+    padding: 0.8rem;
+  }
+}

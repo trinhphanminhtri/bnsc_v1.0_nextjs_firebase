@@ -1,0 +1,40 @@
+.post {
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  background-color: var(--text-smoke-color);
+  border-radius: 9px;
+}
+
+.post a {
+  color: var(--color-grey-100);
+}
+
+.image {
+  width: 100%;
+  max-height: 20rem;
+  overflow: hidden;
+}
+
+.image img {
+  object-fit: cover;
+}
+
+.content {
+  padding: 0.8rem;
+}
+
+.content h3 {
+  margin: 0.4rem 0;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+}
+
+.content time {
+  font-style: italic;
+  color: var(--secondary-color);
+}
+
+.content p {
+  line-height: 1.6;
+}

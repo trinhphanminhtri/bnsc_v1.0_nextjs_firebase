@@ -1,0 +1,67 @@
+{
+  "posts": [
+    {
+      "slug": "brand-opening-01",
+      "title": "brand-opening",
+      "image": "brand-opening-01.jpg",
+      "excerpt": "Khai trương chi nhánh Benison ở An Giang",
+      "date": "2022-12-27",
+      "content": "# This is a first post"
+    },
+    {
+      "slug": "brand-opening-02",
+      "title": "brand-opening",
+      "image": "brand-opening-02.jpg",
+      "excerpt": "Khai trương chi nhánh Benison ở An Giang",
+      "date": "2022-12-27",
+      "content": "# This is a second post"
+    },
+    {
+      "slug": "brand-opening-03",
+      "title": "brand-opening",
+      "image": "brand-opening-03.jpg",
+      "excerpt": "Khai trương chi nhánh Benison ở An Giang",
+      "date": "2022-12-27",
+      "content": "# This is a third post"
+    },
+    {
+      "slug": "brand-opening-04",
+      "title": "brand-opening",
+      "image": "brand-opening-04.jpg",
+      "excerpt": "Khai trương chi nhánh Benison ở An Giang",
+      "date": "2022-12-27"
+    },
+    {
+      "slug": "brand-opening-05",
+      "title": "brand-opening",
+      "image": "brand-opening-05.jpg",
+      "excerpt": "Khai trương chi nhánh Benison ở An Giang",
+      "date": "2022-12-27",
+      "content": "# This is a fourth post"
+    },
+    {
+      "slug": "brand-opening-06",
+      "title": "brand-opening",
+      "image": "brand-opening-06.jpg",
+      "excerpt": "Khai trương chi nhánh Benison ở An Giang",
+      "date": "2022-12-27",
+      "content": "# This is a fifth post"
+    },
+    {
+      "slug": "brand-opening-07",
+      "title": "brand-opening",
+      "image": "brand-opening-07.jpg",
+      "excerpt": "Khai trương chi nhánh Benison ở An Giang",
+      "date": "2022-12-27",
+      "content": "# This is a sixth post"
+    },
+    {
+      "slug": "brand-opening-08",
+      "title": "brand-opening",
+      "image": "brand-opening-08.jpg",
+      "excerpt": "Khai trương chi nhánh Benison ở An Giang",
+      "date": "2022-12-27",
+      "content": "# This is a seventh post"
+    }
+  ]
+}

@@ -1,4 +1,3 @@
-import { collapseToast } from "react-toastify";
 
 const UserProfile = (props) => {
   return <h1>{props.username}</h1>;

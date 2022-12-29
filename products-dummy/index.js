@@ -1,14 +1,23 @@
+// Using the FileSystem
+import fs from "fs/promises";
+import path from "path";
+// End Using the FileSystem
 
 import Head from "next/head";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Container, Row, Col } from "reactstrap";
 
-import { getAllProducts } from "../../helpers/api-util";
-import CommonHero from "../../components/ui/common-hero";
-import ProductList from "../../components/products/product-list";
-import ProductSearchByCategory from "../../components/products/product-search-by-category";
-import ProductSearchBox from "../../components/products/product-search-box";
-import ProductSortSearch from "../../components/products/product-search-sort";
+import {
+  getAllProducts,
+  getAscendingProducts,
+  getDescendingProducts,
+} from "../helpers/api-util";
+
+import CommonHero from "../components/ui/common-hero";
+import ProductList from "../components/products/product-list";
+import ProductSearchByCategory from "../components/products/product-search-by-category";
+import ProductSearchBox from "../components/products/product-search-box";
+import ProductSortSearch from "../components/products/product-search-sort";
 import classes from "../../styles/Products.module.css";
 
 const Products = (props) => {
@@ -137,14 +146,29 @@ const Products = (props) => {
 };
 
 export async function getStaticProps() {
+  // Using the FileSystem
+  const filePath = path.join(process.cwd(), "data", "dummy-backend.json");
+  const jsonData = await fs.readFile(filePath);
+  const data = JSON.parse(jsonData);
 
-  const allProducts = await getAllProducts();
+  if (!data) {
+    return {
+      redirect: { destination: "/contact" },
+    };
+  }
+
+  if (data.products.length === 0) {
+    return { notFound: true };
+  }
+  // End Using the FileSystem
+
 
   return {
     props: {
-      allProducts: allProducts,
+      allProducts: data.products,
+
     },
-    // revalidate: 60,
+    revalidate: 60,
   };
 }
 export default Products;

@@ -1,14 +1,16 @@
-import { getFeaturedProducts, getAllNewArrivals } from "../helpers/api-util";
 import Head from "next/head";
 import { Fragment } from "react";
+import { motion } from "framer-motion";
+
+import { getFeaturedProducts, getAllNewArrivals } from "../helpers/api-util";
 import Hero from "../components/hero/Hero";
 import Title from "../components/ui/title";
 import Services from "../components/services/services";
 import ProductList from "../components/products/product-list";
 import BannerCountDown from "../components/discount/banner";
-import { motion } from "framer-motion";
 
 const HomePage = (props) => {
+  // const { featuredProducts, newArrivals } = props;
   return (
     <Fragment>
       <Head>
@@ -40,18 +42,15 @@ const HomePage = (props) => {
     </Fragment>
   );
 };
-
+// index page: no need server-side rendering: re-rendering for every request
 export async function getStaticProps() {
-  const allFeaturedproducts = await getFeaturedProducts();
-  const allNewArrivals = await getAllNewArrivals();
-
+  const featuredProducts = await getFeaturedProducts();
+  const newArrivals = await getAllNewArrivals();
   return {
     props: {
-      featuredProducts: allFeaturedproducts,
-      newArrivals: allNewArrivals,
+      featuredProducts: featuredProducts,
+      newArrivals: newArrivals,
     },
-    revalidate: 1800,
-    // notFound: true,
   };
 }
 

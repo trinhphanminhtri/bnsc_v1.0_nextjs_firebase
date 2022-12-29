@@ -16,8 +16,8 @@ const Header = () => {
   const links = [
     { path: "/", text: "Trang chủ" },
     { path: "/products", text: "Sản phẩm" },
-    { path: "/cart", text: "Giỏ hàng" },
-    { path: "/blog", text: "Tin tức" },
+    // { path: "/cart", text: "Giỏ hàng" },
+    { path: "/posts", text: "Tin tức" },
     { path: "/contact", text: "Liên hệ" },
   ];
   // hidden navbar then show navbar out when scrolling

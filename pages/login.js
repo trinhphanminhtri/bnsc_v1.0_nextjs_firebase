@@ -4,7 +4,6 @@ import Head from "next/head";
 import Link from "next/link";
 import classes from "../styles/LoginSignup.module.css";
 import Button from "../components/ui/button";
-import { motion } from "framer-motion";
 
 const Login = () => {
   return (

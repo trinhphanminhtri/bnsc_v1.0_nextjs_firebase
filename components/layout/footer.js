@@ -21,7 +21,7 @@ const Footer = () => {
   ];
   const links = [
     { path: "/products", text: "Sản phẩm" },
-    { path: "/blog", text: "Tin tức" },
+    { path: "/posts", text: "Tin tức" },
     { path: "/contact", text: "Liên hệ" },
     { path: "/login", text: "Đăng nhập" },
     { path: "/faq", text: "Câu hỏi" },

@@ -2,17 +2,16 @@ import { useEffect, useState } from "react";
 import { Container, Col } from "reactstrap";
 import useSWR from "swr";
 
+const fetcher = (url) => fetch(url).then((r) => r.json());
 const FetchingUseSWR = () => {
   const [sales, setSales] = useState([]);
-
-  const fetcher = (url) => fetch(url).then((r) => r.json());
-
+  
   const { data, error } = useSWR(
-    "https://bnscv1nextjs-default-rtdb.firebaseio.com/sales.json",fetcher
+    "https://bnscv1nextjs-default-rtdb.firebaseio.com/sales.json",
+    fetcher
   );
 
-  // transforming data
-
+  // Transforming data
   useEffect(() => {
     if (data) {
       const transformedSales = [];
@@ -21,19 +20,20 @@ const FetchingUseSWR = () => {
           id: key,
           username: data[key].username,
           volume: data[key].volume,
+          // ...data[key],
         });
       }
       setSales(transformedSales);
     }
-  }, [data]);
+  }, [data]); // dependencies: data -> to re-run when fetching new data
+  // End Transforming data
+  
 
   if (error) {
     return <p>Failed to load</p>;
   }
-
   if (!data || !sales) {
-    return <p>Loading...</p>
-    
+    return <p>Loading...</p>;
   }
   return (
     <Container>

@@ -34,6 +34,7 @@
   color: var(--price-color);
   font-size: 0.9rem;
   margin-top: 0.5rem;
+  font-style: italic;
 }
 
 @media only screen and (max-width:1200px) {
